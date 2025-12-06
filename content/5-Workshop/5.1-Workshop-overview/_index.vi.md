@@ -125,7 +125,6 @@ git push origin main
 
 ![Platform Architecture](/images/5-Workshop/5.1-Workshop-overview/platform_architecture.png)
 
-
 ### Chi tiết từng phần
 
 Workshop được chia thành các phần:
