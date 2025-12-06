@@ -125,25 +125,6 @@ git push origin main
 
 ![Platform Architecture](/images/5-Workshop/5.1-Workshop-overview/platform_architecture.png)
 
-```
-┌─────────────────────────────────────────────────────────┐
-│              GitLab CI/CD Pipeline                       │
-├─────────────────────────────────────────────────────────┤
-│                                                         │
-│  Git Push → lint_and_scan → build_and_push → deploy    │
-│                                                         │
-└─────────────────────────────────────────────────────────┘
-                              ↓
-┌─────────────────────────────────────────────────────────┐
-│              AWS Infrastructure                         │
-├─────────────────────────────────────────────────────────┤
-│                                                         │
-│  API Gateway → Lambda (Container) → DynamoDB           │
-│                                                         │
-│  CloudWatch ← Monitoring & Alerts                       │
-│                                                         │
-└─────────────────────────────────────────────────────────┘
-```
 
 ### Chi tiết từng phần
 
