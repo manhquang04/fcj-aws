@@ -6,8 +6,8 @@ chapter: false
 pre: " <b> 6. </b> "
 ---
 
-Trong suốt thời gian thực tập tại **[Tên công ty/tổ chức]** từ **[ngày bắt đầu]** đến **[ngày kết thúc]**, tôi đã có cơ hội học hỏi, rèn luyện và áp dụng kiến thức đã được trang bị tại trường vào môi trường làm việc thực tế.  
-Tôi đã tham gia **[mô tả ngắn gọn dự án hoặc công việc chính]**, qua đó cải thiện kỹ năng **[liệt kê kỹ năng: lập trình, phân tích, viết báo cáo, giao tiếp...]**.  
+Trong suốt thời gian thực tập tại **Amazon Web Services Vietnam Co., Ltd.** từ **08/09/2025** đến **25/12/2025**, tôi đã có cơ hội học hỏi, rèn luyện và áp dụng kiến thức đã được trang bị tại trường vào môi trường làm việc thực tế.  
+Tôi đã tham gia **xây dựng FastAPI Backend API bảo mật trên AWS Lambda với DevSecOps**, bao gồm phát triển ứng dụng serverless với pipeline CI/CD tự động, quét bảo mật (Semgrep và Trivy), Infrastructure as Code sử dụng Terraform, và monitoring với CloudWatch. Qua dự án này, tôi đã cải thiện kỹ năng **lập trình Python, phát triển FastAPI, các dịch vụ AWS (Lambda, API Gateway, DynamoDB, ECR, Secrets Manager), containerization với Docker, thiết lập CI/CD pipeline, tự động hóa infrastructure với Terraform, quét bảo mật và đánh giá lỗ hổng, thiết kế database, phát triển API, viết tài liệu kỹ thuật, và giải quyết vấn đề trong môi trường cloud**.  
 
 Về tác phong, tôi luôn cố gắng hoàn thành tốt nhiệm vụ, tuân thủ nội quy, và tích cực trao đổi với đồng nghiệp để nâng cao hiệu quả công việc.
 
@@ -17,12 +17,12 @@ Về tác phong, tôi luôn cố gắng hoàn thành tốt nhiệm vụ, tuân t
 | STT | Tiêu chí                            | Mô tả                                                                                            | Tốt | Khá | Trung bình |
 | --- | ----------------------------------- | ------------------------------------------------------------------------------------------------ | --- | --- | ---------- |
 | 1   | **Kiến thức và kỹ năng chuyên môn** | Hiểu biết về ngành, áp dụng kiến thức vào thực tế, kỹ năng sử dụng công cụ, chất lượng công việc | ✅   | ☐   | ☐          |
-| 2   | **Khả năng học hỏi**                | Tiếp thu kiến thức mới, học hỏi nhanh                                                            | ☐   | ✅   | ☐          |
+| 2   | **Khả năng học hỏi**                | Tiếp thu kiến thức mới, học hỏi nhanh                                                            | ✅   | ☐   | ☐          |
 | 3   | **Chủ động**                        | Tự tìm hiểu, nhận nhiệm vụ mà không chờ chỉ dẫn                                                  | ✅   | ☐   | ☐          |
 | 4   | **Tinh thần trách nhiệm**           | Hoàn thành công việc đúng hạn, đảm bảo chất lượng                                                | ✅   | ☐   | ☐          |
-| 5   | **Kỷ luật**                         | Tuân thủ giờ giấc, nội quy, quy trình làm việc                                                   | ☐   | ☐   | ✅          |
+| 5   | **Kỷ luật**                         | Tuân thủ giờ giấc, nội quy, quy trình làm việc                                                   | ☐   | ✅   | ☐          |
 | 6   | **Tính cầu tiến**                   | Sẵn sàng nhận feedback và cải thiện bản thân                                                     | ☐   | ✅   | ☐          |
-| 7   | **Giao tiếp**                       | Trình bày ý tưởng, báo cáo công việc rõ ràng                                                     | ☐   | ✅   | ☐          |
+| 7   | **Giao tiếp**                       | Trình bày ý tưởng, báo cáo công việc rõ ràng                                                     | ✅   | ☐   | ☐          |
 | 8   | **Hợp tác nhóm**                    | Làm việc hiệu quả với đồng nghiệp, tham gia nhóm                                                 | ✅   | ☐   | ☐          |
 | 9   | **Ứng xử chuyên nghiệp**            | Tôn trọng đồng nghiệp, đối tác, môi trường làm việc                                              | ✅   | ☐   | ☐          |
 | 10  | **Tư duy giải quyết vấn đề**        | Nhận diện vấn đề, đề xuất giải pháp, sáng tạo                                                    | ☐   | ✅   | ☐          |
@@ -31,8 +31,8 @@ Về tác phong, tôi luôn cố gắng hoàn thành tốt nhiệm vụ, tuân t
 
 ### Cần cải thiện
 
-* Nâng cao tính kỷ luật, chấp hành nghiêm chỉnh nội quy của công ty hoặc bất kỳ trong một tổ chức nào
-* Cải thiện trong cách tư duy giải quyết vấn đề
-* Học cách giao tiếp tốt hơn trong giao tiếp hằng ngày và trong công việc, xử lý tình huống
+* **Kỷ luật**: Tiếp tục cải thiện quản lý thời gian và duy trì tính nhất quán trong việc tuân thủ lịch trình, deadline, và nội quy công ty. Tăng cường thêm việc tuân theo quy trình và quy trình làm việc đã được thiết lập.
+* **Tư duy giải quyết vấn đề**: Nâng cao tư duy phân tích và cách tiếp cận có hệ thống để xử lý các vấn đề phức tạp về cloud infrastructure. Phát triển chiến lược debug tốt hơn cho hệ thống phân tán và lỗi CI/CD pipeline.
+* **Tính cầu tiến**: Chủ động tìm kiếm feedback về chất lượng code, quyết định kiến trúc, và thực hành bảo mật. Liên tục học hỏi các dịch vụ AWS mới và best practices trong phát triển cloud-native.
 
 
