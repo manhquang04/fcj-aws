@@ -1,58 +1,58 @@
 ﻿---
-title: "Quick Start: DevSecOps với FastAPI Backend"
+title: "Quick Start: DevSecOps with FastAPI Backend"
 date: "2024-01-01" 
 weight: 1
 chapter: false
 pre: " <b> 5.1. </b> "
 ---
 
-## Quick Start: DevSecOps với FastAPI Backend
+## Quick Start: DevSecOps with FastAPI Backend
 
-Workshop này hướng dẫn bạn **thiết lập nhanh DevSecOps pipeline** cho FastAPI Backend trên AWS Lambda. Chỉ cần **config một số thứ cơ bản** và pipeline sẽ tự động build, scan, và deploy.
+This workshop guides you through **quickly setting up a DevSecOps pipeline** for a FastAPI Backend on AWS Lambda. Just **configure a few basic things** and the pipeline will automatically build, scan, and deploy.
 
 **Repository:** [https://gitlab.com/m.quang/devsecops-aws-ver2](https://gitlab.com/m.quang/devsecops-aws-ver2)
 
 ### Quick Start Checklist
 
-Chỉ cần làm 5 bước này:
+Just follow these 5 steps:
 
-1. **Config AWS CLI** - `aws configure`
-2. **Tạo JWT Secret** - `aws secretsmanager create-secret`
-3. **Tạo ECR Repository** - `aws ecr create-repository`
-4. **Config GitLab Variables** - Thêm 7 variables trong GitLab
-5. **Push Code** - `git push` và pipeline tự động chạy
+1. **Configure AWS CLI** - `aws configure`
+2. **Create JWT Secret** - `aws secretsmanager create-secret`
+3. **Create ECR Repository** - `aws ecr create-repository`
+4. **Configure GitLab Variables** - Add 7 variables in GitLab
+5. **Push Code** - `git push` and the pipeline will automatically run
 
-**Thời gian:** ~15-20 phút
+**Time:** ~15-20 minutes
 
-### Bạn sẽ có gì?
+### What You'll Get?
 
-Sau khi hoàn thành, bạn sẽ có:
+After completion, you'll have:
 
-- **FastAPI Backend** chạy trên AWS Lambda (container)
-- **GitLab CI/CD Pipeline** tự động:
+- **FastAPI Backend** running on AWS Lambda (container)
+- **GitLab CI/CD Pipeline** automatically:
   - **Semgrep** - Security scan (SAST)
   - **Docker Build** - Build container image
   - **Trivy** - Vulnerability scan
-  - **Terraform Deploy** - Tự động deploy infrastructure
+  - **Terraform Deploy** - Automatically deploy infrastructure
 - **API Gateway** - REST API endpoint
 - **DynamoDB** - 3 tables (products, orders, users)
 - **CloudWatch** - Monitoring & alerting
 
-### Các bước chi tiết
+### Detailed Steps
 
-#### Bước 1: Clone & Config AWS CLI
+#### Step 1: Clone & Configure AWS CLI
 
 ```bash
 # Clone repository
 git clone https://gitlab.com/m.quang/devsecops-aws-ver2.git
 cd devsecops-aws-ver2/Backend-FastAPI-Docker_Build-Pipeline
 
-# Config AWS CLI
+# Configure AWS CLI
 aws configure
-# Nhập: Access Key, Secret Key, Region (ap-southeast-1), Format (json)
+# Enter: Access Key, Secret Key, Region (ap-southeast-1), Format (json)
 ```
 
-#### Bước 2: Tạo JWT Secret
+#### Step 2: Create JWT Secret
 
 ```bash
 JWT_SECRET=$(openssl rand -hex 32)
@@ -61,7 +61,7 @@ aws secretsmanager create-secret \
     --secret-string "$JWT_SECRET" \
     --region ap-southeast-1
 
-# Lấy ARN (lưu lại)
+# Get ARN (save it)
 JWT_SECRET_ARN=$(aws secretsmanager describe-secret \
     --secret-id fastapi-jwt-secret \
     --region ap-southeast-1 \
@@ -70,7 +70,7 @@ JWT_SECRET_ARN=$(aws secretsmanager describe-secret \
 echo "JWT_SECRET_ARN: $JWT_SECRET_ARN"
 ```
 
-#### Bước 3: Tạo ECR Repository
+#### Step 3: Create ECR Repository
 
 ```bash
 aws ecr create-repository \
@@ -78,7 +78,7 @@ aws ecr create-repository \
     --image-scanning-configuration scanOnPush=true \
     --region ap-southeast-1
 
-# Lấy ECR URI (lưu lại)
+# Get ECR URI (save it)
 ECR_URI=$(aws ecr describe-repositories \
     --repository-names fastapi-lambda \
     --region ap-southeast-1 \
@@ -87,11 +87,11 @@ ECR_URI=$(aws ecr describe-repositories \
 echo "ECR_URI: $ECR_URI"
 ```
 
-#### Bước 4: Config GitLab CI/CD Variables
+#### Step 4: Configure GitLab CI/CD Variables
 
-Vào GitLab project → **Settings** → **CI/CD** → **Variables** → **Expand**
+Go to GitLab project → **Settings** → **CI/CD** → **Variables** → **Expand**
 
-Thêm 7 variables:
+Add 7 variables:
 
 | Variable | Value | Protected | Masked |
 |----------|-------|-----------|--------|
@@ -103,20 +103,20 @@ Thêm 7 variables:
 | `PROJECT_NAME` | `fastapi-lambda` | ❌ | ❌ |
 | `LAMBDA_FUNCTION_NAME` | `fastapi-lambda-fn` | ❌ | ❌ |
 
-#### Bước 5: Setup GitLab CI/CD & Push
+#### Step 5: Setup GitLab CI/CD & Push
 
 ```bash
-# Copy GitLab CI file (từ repository root)
+# Copy GitLab CI file (from repository root)
 cd ..
 cp Backend-FastAPI-Docker_Build-Pipeline/.gitlab-ci.yml.example .gitlab-ci.yml
 
-# Commit và push
+# Commit and push
 git add .gitlab-ci.yml
 git commit -m "Add GitLab CI/CD pipeline"
 git push origin main
 ```
 
-**Pipeline tự động chạy:**
+**Pipeline automatically runs:**
 1. **lint_and_scan** - Semgrep security scan
 2. **build_and_push** - Docker build + Trivy scan + ECR push
 3. **terraform_deploy** - Deploy infrastructure
@@ -145,14 +145,14 @@ git push origin main
 └─────────────────────────────────────────────────────────┘
 ```
 
-### Chi tiết từng phần
+### Detailed Sections
 
-Workshop được chia thành các phần:
+The workshop is divided into sections:
 
 1. **[Prerequisites](5.2-Prerequiste/)** - Setup AWS CLI, GitLab account
-2. **[Setup GitLab CI/CD](5.3-S3-vpc/5.3.1-create-gwe/)** - Config pipeline và variables
+2. **[Setup GitLab CI/CD](5.3-S3-vpc/5.3.1-create-gwe/)** - Configure pipeline and variables
 3. **[Security Scanning](5.3-S3-vpc/5.3.2-test-gwe/)** - Semgrep & Trivy
-4. **[Deploy Backend](5.4-S3-onprem/)** - Infrastructure tự động deploy
+4. **[Deploy Backend](5.4-S3-onprem/)** - Infrastructure automatically deployed
 
 ### Tech Stack
 
@@ -168,10 +168,10 @@ Workshop được chia thành các phần:
 
 ### Verification
 
-Sau khi pipeline chạy xong:
+After the pipeline finishes running:
 
 ```bash
-# Lấy API URL từ GitLab job logs hoặc:
+# Get API URL from GitLab job logs or:
 cd Backend-FastAPI-Docker_Build-Pipeline/infra
 terraform output api_url
 
@@ -190,12 +190,12 @@ curl https://YOUR_API_ID.execute-api.ap-southeast-1.amazonaws.com/health
 
 ### Next Steps
 
-1. Đọc [Prerequisites](5.2-Prerequiste/) để setup môi trường
-2. Làm theo [Setup GitLab CI/CD](5.3-S3-vpc/5.3.1-create-gwe/) để config pipeline
-3. Xem [Security Scanning](5.3-S3-vpc/5.3.2-test-gwe/) để hiểu cách scan hoạt động
-4. Kiểm tra [Deploy Backend](5.4-S3-onprem/) để xem infrastructure được tạo
+1. Read [Prerequisites](5.2-Prerequiste/) to setup the environment
+2. Follow [Setup GitLab CI/CD](5.3-S3-vpc/5.3.1-create-gwe/) to configure the pipeline
+3. View [Security Scanning](5.3-S3-vpc/5.3.2-test-gwe/) to understand how scanning works
+4. Check [Deploy Backend](5.4-S3-onprem/) to see the infrastructure being created
 
 {{% notice tip %}}
-Workshop này dựa trên **folder dự án thực tế** `Backend-FastAPI-Docker_Build-Pipeline`. Tất cả code và config đã sẵn sàng, bạn chỉ cần config và chạy!
+This workshop is based on a **real project folder** `Backend-FastAPI-Docker_Build-Pipeline`. All code and configuration are ready, you just need to configure and run!
 {{% /notice %}}
 

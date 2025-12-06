@@ -143,6 +143,3 @@ Backend-FastAPI-Docker_Build-Pipeline/
 | **Cấp độ** | Trung cấp đến Nâng cao |
 | **Chi phí** | ~$5-10 (nếu dọn dẹp sau workshop) |
 
-#### Ảnh cần thiết
-
-- `platform_architecture.png` - Sơ đồ kiến trúc tổng thể hệ thống hiển thị CI/CD, Application, và Monitoring domains (nằm trong `/images/5-Workshop/5.1-Workshop-overview/`)

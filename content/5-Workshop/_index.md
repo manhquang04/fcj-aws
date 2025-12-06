@@ -143,6 +143,4 @@ Backend-FastAPI-Docker_Build-Pipeline/
 | **Level** | Intermediate to Advanced |
 | **Cost** | ~$5-10 (if cleaned up after workshop) |
 
-#### Images Required
 
-- `platform_architecture.png` - Overall system architecture diagram showing CI/CD, Application, and Monitoring domains (located in `/images/5-Workshop/5.1-Workshop-overview/`)
