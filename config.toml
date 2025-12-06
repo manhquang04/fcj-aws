@@ -1,4 +1,4 @@
-baseURL = "https://m.quang.gitlab.io/aws-fcj-report/"
+baseURL = "https://manhquang04.github.io/fcj-aws/"
 relativeURLs = false
 canonifyURLs = true
 defaultContentLanguageInSubdir = true
