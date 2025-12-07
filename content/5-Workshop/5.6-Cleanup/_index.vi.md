@@ -14,8 +14,7 @@ Trong phần này, bạn sẽ dọn dẹp tất cả tài nguyên AWS được t
 
 Quan trọng là xóa tài nguyên theo đúng thứ tự do dependencies:
 
-1. **CodePipeline và CodeBuild** (nếu tạo riêng)
-2. **API Gateway**
+1. **API Gateway**
 3. **Lambda Function**
 4. **DynamoDB Tables**
 5. **CloudWatch Log Groups**
@@ -46,19 +45,11 @@ terraform destroy
 
 ![Terraform Destroy](/images/5-Workshop/5.6-Clean-Up-Resources/terraform-destroy.png)
 
-### Bước 2: Destroy CI/CD Pipeline
+### Bước 2: Dọn dẹp GitLab CI/CD (nếu cần)
 
-```bash
-cd pipeline
-terraform destroy
-```
-
-Điều này sẽ destroy:
-- CodePipeline
-- CodeBuild projects
-- ECR repository
-- S3 bucket cho artifacts
-- IAM roles cho pipeline
+GitLab CI/CD pipeline không cần cleanup vì nó chạy trên GitLab infrastructure. Chỉ cần:
+- Xóa GitLab CI/CD variables (nếu muốn)
+- Xóa GitLab project (nếu không cần nữa)
 
 ### Bước 3: Dọn dẹp thủ công (nếu cần)
 

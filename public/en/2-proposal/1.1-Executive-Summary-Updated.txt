@@ -1,0 +1,20 @@
+1.1 EXECUTIVE SUMMARY
+
+The project operates a secure FastAPI backend application on AWS Lambda with a fully automated DevSecOps CI/CD pipeline. When code is pushed to GitLab, the pipeline automatically scans for security vulnerabilities using Semgrep (SAST) and Trivy (container scanning), builds Docker container images, provisions infrastructure via Terraform, and deploys images to Amazon ECR. Users access the application through API Gateway HTTP API, which invokes Lambda functions (running FastAPI in containers) for business logic and stores data in DynamoDB tables (products, orders, users). The application uses AWS Secrets Manager for JWT authentication secrets. The system continuously monitors through CloudWatch Logs and Metrics, with CloudWatch Alarms triggering SNS alerts upon incidents or performance issues.
+
+Problem Statement
+Many organizations struggle with deploying serverless applications due to error-prone manual processes, lack of security controls, and scalability challenges. Specific issues include:
+
+• Manual deployment processes lack consistent security checks, often missing vulnerability scanning and automated testing steps.
+
+• Traditional deployment workflows require manual intervention at each stage, leading to human errors and inconsistent deployments.
+
+• Secrets and sensitive information are hardcoded or stored insecurely, making them vulnerable to exposure.
+
+• Limited observability causes slow incident response and delayed threat detection.
+
+• Lack of Infrastructure as Code (IaC) makes infrastructure changes risky and difficult to reproduce.
+
+Solution
+The project delivers a complete serverless architecture with automated CI/CD, integrated security, and comprehensive monitoring. The deployment pipeline automates from GitLab CI/CD through three stages: lint (Semgrep SAST), build (Docker build + Trivy container scanning), and deploy (Terraform infrastructure provisioning), ensuring every change is tested and security-scanned before deployment. The serverless backend uses API Gateway HTTP API as the entry point, Lambda functions running FastAPI in container images from ECR, DynamoDB for data storage, and Secrets Manager for secure JWT secret management. A comprehensive monitoring system using CloudWatch (Logs, Metrics, Alarms) and SNS detects and alerts on incidents instantly.
+

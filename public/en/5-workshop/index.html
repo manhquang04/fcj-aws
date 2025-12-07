@@ -15,21 +15,21 @@
     <title>Workshop :: Internship Report</title>
 
     
-    <link href="http://localhost:1313/fcj-aws/css/nucleus.css?1765037980" rel="stylesheet">
-    <link href="http://localhost:1313/fcj-aws/css/fontawesome-all.min.css?1765037980" rel="stylesheet">
-    <link href="http://localhost:1313/fcj-aws/css/hybrid.css?1765037980" rel="stylesheet">
-    <link href="http://localhost:1313/fcj-aws/css/featherlight.min.css?1765037980" rel="stylesheet">
-    <link href="http://localhost:1313/fcj-aws/css/perfect-scrollbar.min.css?1765037980" rel="stylesheet">
-    <link href="http://localhost:1313/fcj-aws/css/auto-complete.css?1765037980" rel="stylesheet">
-    <link href="http://localhost:1313/fcj-aws/css/atom-one-dark-reasonable.css?1765037980" rel="stylesheet">
-    <link href="http://localhost:1313/fcj-aws/css/theme.css?1765037980" rel="stylesheet">
-    <link href="http://localhost:1313/fcj-aws/css/hugo-theme.css?1765037980" rel="stylesheet">
+    <link href="http://localhost:1313/fcj-aws/css/nucleus.css?1765111900" rel="stylesheet">
+    <link href="http://localhost:1313/fcj-aws/css/fontawesome-all.min.css?1765111900" rel="stylesheet">
+    <link href="http://localhost:1313/fcj-aws/css/hybrid.css?1765111900" rel="stylesheet">
+    <link href="http://localhost:1313/fcj-aws/css/featherlight.min.css?1765111900" rel="stylesheet">
+    <link href="http://localhost:1313/fcj-aws/css/perfect-scrollbar.min.css?1765111900" rel="stylesheet">
+    <link href="http://localhost:1313/fcj-aws/css/auto-complete.css?1765111900" rel="stylesheet">
+    <link href="http://localhost:1313/fcj-aws/css/atom-one-dark-reasonable.css?1765111900" rel="stylesheet">
+    <link href="http://localhost:1313/fcj-aws/css/theme.css?1765111900" rel="stylesheet">
+    <link href="http://localhost:1313/fcj-aws/css/hugo-theme.css?1765111900" rel="stylesheet">
     
-    <link href="http://localhost:1313/fcj-aws/css/theme-workshop.css?1765037980" rel="stylesheet">
+    <link href="http://localhost:1313/fcj-aws/css/theme-workshop.css?1765111900" rel="stylesheet">
     
     
 
-    <script src="http://localhost:1313/fcj-aws/js/jquery-3.3.1.min.js?1765037980"></script>
+    <script src="http://localhost:1313/fcj-aws/js/jquery-3.3.1.min.js?1765111900"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -88,14 +88,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="http://localhost:1313/fcj-aws/js/lunr.min.js?1765037980"></script>
-<script type="text/javascript" src="http://localhost:1313/fcj-aws/js/auto-complete.js?1765037980"></script>
+<script type="text/javascript" src="http://localhost:1313/fcj-aws/js/lunr.min.js?1765111900"></script>
+<script type="text/javascript" src="http://localhost:1313/fcj-aws/js/auto-complete.js?1765111900"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/localhost:1313\/fcj-aws\/\/en";
     
 </script>
-<script type="text/javascript" src="http://localhost:1313/fcj-aws/js/search.js?1765037980"></script>
+<script type="text/javascript" src="http://localhost:1313/fcj-aws/js/search.js?1765111900"></script>
  
   </div>
 
@@ -1072,7 +1072,7 @@
 <ul>
 <li>Build a <strong>FastAPI</strong> application with clean layered architecture (API → Service → Repository)</li>
 <li>Package FastAPI as a <strong>Lambda container image</strong> using Mangum adapter</li>
-<li>Set up <strong>AWS CodePipeline</strong> with <strong>CodeBuild</strong> for automated CI/CD</li>
+<li>Set up <strong>GitLab CI/CD</strong> pipeline for automated CI/CD</li>
 <li>Integrate security scanning with <strong>Semgrep</strong> (SAST) and <strong>Trivy</strong> (container vulnerability scanning)</li>
 <li>Deploy infrastructure using <strong>Terraform</strong> modules</li>
 <li>Store data in <strong>DynamoDB</strong> tables (products, orders, users)</li>
@@ -1083,7 +1083,7 @@
 <p><img src="http://localhost:1313/fcj-aws/images/5-Workshop/workshop-architecture.png" alt="System Architecture"></p>
 <p>The architecture is divided into three main domains:</p>
 <ol>
-<li><strong>CI/CD Pipeline Domain</strong>: GitLab → CodePipeline → CodeBuild (Semgrep → Docker Build → Trivy) → ECR → Terraform Deploy</li>
+<li><strong>CI/CD Pipeline Domain</strong>: GitLab CI/CD (Semgrep → Docker Build → Trivy) → ECR → Terraform Deploy</li>
 <li><strong>Application Domain</strong>: API Gateway HTTP API → Lambda (Container) → FastAPI → DynamoDB + Secrets Manager</li>
 <li><strong>Monitoring Domain</strong>: CloudWatch Logs → CloudWatch Alarms → SNS Alerts</li>
 </ol>
@@ -1154,7 +1154,7 @@ DynamoDB Tables
 └── pipeline/                   # CI/CD Pipeline
     ├── buildspec-build.yml    # Build stage (Semgrep, Docker, Trivy)
     ├── buildspec-deploy.yml   # Deploy stage (Terraform)
-    ├── codepipeline.tf        # CodePipeline configuration
+    └── .gitlab-ci.yml         # GitLab CI/CD configuration
     └── README.md
 </code></pre><h4 id="content">Content</h4>
 <ol>
@@ -1192,7 +1192,7 @@ DynamoDB Tables
       </tr>
       <tr>
           <td><strong>CI/CD</strong></td>
-          <td>AWS CodePipeline, CodeBuild, Amazon ECR</td>
+          <td>GitLab CI/CD, Amazon ECR</td>
       </tr>
       <tr>
           <td><strong>Monitoring</strong></td>
@@ -1983,19 +1983,19 @@ DynamoDB Tables
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="http://localhost:1313/fcj-aws/js/clipboard.min.js?1765037980"></script>
-    <script src="http://localhost:1313/fcj-aws/js/perfect-scrollbar.min.js?1765037980"></script>
-    <script src="http://localhost:1313/fcj-aws/js/perfect-scrollbar.jquery.min.js?1765037980"></script>
-    <script src="http://localhost:1313/fcj-aws/js/jquery.sticky.js?1765037980"></script>
-    <script src="http://localhost:1313/fcj-aws/js/featherlight.min.js?1765037980"></script>
-    <script src="http://localhost:1313/fcj-aws/js/highlight.pack.js?1765037980"></script>
+    <script src="http://localhost:1313/fcj-aws/js/clipboard.min.js?1765111900"></script>
+    <script src="http://localhost:1313/fcj-aws/js/perfect-scrollbar.min.js?1765111900"></script>
+    <script src="http://localhost:1313/fcj-aws/js/perfect-scrollbar.jquery.min.js?1765111900"></script>
+    <script src="http://localhost:1313/fcj-aws/js/jquery.sticky.js?1765111900"></script>
+    <script src="http://localhost:1313/fcj-aws/js/featherlight.min.js?1765111900"></script>
+    <script src="http://localhost:1313/fcj-aws/js/highlight.pack.js?1765111900"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="http://localhost:1313/fcj-aws/js/modernizr.custom-3.6.0.js?1765037980"></script>
-    <script src="http://localhost:1313/fcj-aws/js/learn.js?1765037980"></script>
-    <script src="http://localhost:1313/fcj-aws/js/hugo-learn.js?1765037980"></script>
+    <script src="http://localhost:1313/fcj-aws/js/modernizr.custom-3.6.0.js?1765111900"></script>
+    <script src="http://localhost:1313/fcj-aws/js/learn.js?1765111900"></script>
+    <script src="http://localhost:1313/fcj-aws/js/hugo-learn.js?1765111900"></script>
 
-    <link href="http://localhost:1313/fcj-aws/mermaid/mermaid.css?1765037980" rel="stylesheet" />
-    <script src="http://localhost:1313/fcj-aws/mermaid/mermaid.js?1765037980"></script>
+    <link href="http://localhost:1313/fcj-aws/mermaid/mermaid.css?1765111900" rel="stylesheet" />
+    <script src="http://localhost:1313/fcj-aws/mermaid/mermaid.js?1765111900"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

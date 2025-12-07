@@ -15,21 +15,21 @@
     <title>Bản đề xuất :: Báo cáo thực tập</title>
 
     
-    <link href="http://localhost:1313/fcj-aws/css/nucleus.css?1765036373" rel="stylesheet">
-    <link href="http://localhost:1313/fcj-aws/css/fontawesome-all.min.css?1765036373" rel="stylesheet">
-    <link href="http://localhost:1313/fcj-aws/css/hybrid.css?1765036373" rel="stylesheet">
-    <link href="http://localhost:1313/fcj-aws/css/featherlight.min.css?1765036373" rel="stylesheet">
-    <link href="http://localhost:1313/fcj-aws/css/perfect-scrollbar.min.css?1765036373" rel="stylesheet">
-    <link href="http://localhost:1313/fcj-aws/css/auto-complete.css?1765036373" rel="stylesheet">
-    <link href="http://localhost:1313/fcj-aws/css/atom-one-dark-reasonable.css?1765036373" rel="stylesheet">
-    <link href="http://localhost:1313/fcj-aws/css/theme.css?1765036373" rel="stylesheet">
-    <link href="http://localhost:1313/fcj-aws/css/hugo-theme.css?1765036373" rel="stylesheet">
+    <link href="http://localhost:1313/fcj-aws/css/nucleus.css?1765111900" rel="stylesheet">
+    <link href="http://localhost:1313/fcj-aws/css/fontawesome-all.min.css?1765111900" rel="stylesheet">
+    <link href="http://localhost:1313/fcj-aws/css/hybrid.css?1765111900" rel="stylesheet">
+    <link href="http://localhost:1313/fcj-aws/css/featherlight.min.css?1765111900" rel="stylesheet">
+    <link href="http://localhost:1313/fcj-aws/css/perfect-scrollbar.min.css?1765111900" rel="stylesheet">
+    <link href="http://localhost:1313/fcj-aws/css/auto-complete.css?1765111900" rel="stylesheet">
+    <link href="http://localhost:1313/fcj-aws/css/atom-one-dark-reasonable.css?1765111900" rel="stylesheet">
+    <link href="http://localhost:1313/fcj-aws/css/theme.css?1765111900" rel="stylesheet">
+    <link href="http://localhost:1313/fcj-aws/css/hugo-theme.css?1765111900" rel="stylesheet">
     
-    <link href="http://localhost:1313/fcj-aws/css/theme-workshop.css?1765036373" rel="stylesheet">
+    <link href="http://localhost:1313/fcj-aws/css/theme-workshop.css?1765111900" rel="stylesheet">
     
     
 
-    <script src="http://localhost:1313/fcj-aws/js/jquery-3.3.1.min.js?1765036373"></script>
+    <script src="http://localhost:1313/fcj-aws/js/jquery-3.3.1.min.js?1765111900"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -88,14 +88,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="http://localhost:1313/fcj-aws/js/lunr.min.js?1765036373"></script>
-<script type="text/javascript" src="http://localhost:1313/fcj-aws/js/auto-complete.js?1765036373"></script>
+<script type="text/javascript" src="http://localhost:1313/fcj-aws/js/lunr.min.js?1765111900"></script>
+<script type="text/javascript" src="http://localhost:1313/fcj-aws/js/auto-complete.js?1765111900"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/localhost:1313\/fcj-aws\/\/vi";
     
 </script>
-<script type="text/javascript" src="http://localhost:1313/fcj-aws/js/search.js?1765036373"></script>
+<script type="text/javascript" src="http://localhost:1313/fcj-aws/js/search.js?1765111900"></script>
  
   </div>
 
@@ -1078,6 +1078,11 @@
 
 
 	<h1 id="dự-án-serverless-bảo-mật-cho-ứng-dụng-phục-vụ-toàn-cầu">Dự án Serverless Bảo Mật Cho Ứng Dụng Phục Vụ Toàn Cầu</h1>
+<div style="text-align: center; margin: 2rem 0;">
+  <a href="http://localhost:1313/fcj-aws/Proposal.docx" download="Proposal.docx" style="display: inline-block; padding: 12px 24px; background-color: #FF9900; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 16px; transition: background-color 0.3s;">
+     Tải xuống Bản đề xuất (DOCX)
+  </a>
+</div>
 <h2 id="1-tóm-tắt-dự-án">1. Tóm tắt dự án</h2>
 <p>Dự án vận hành một ứng dụng serverless trên AWS với quy trình CI/CD tự động hoàn toàn. Khi mã nguồn được đẩy lên GitLab, pipeline tự động quét bảo mật (Semgrep, Trivy), build container, triển khai hạ tầng bằng Terraform và đẩy image lên Amazon ECR. Người dùng truy cập qua Route 53 → CloudFront → WAF → API Gateway, được xác thực bởi Cognito và gọi Lambda để xử lý nghiệp vụ, lưu trữ dữ liệu trong DynamoDB. Hệ thống giám sát liên tục qua CloudWatch, CloudTrail, GuardDuty và gửi cảnh báo qua EventBridge → SNS khi phát hiện sự cố hoặc mối đe dọa.</p>
 <h2 id="2-tuyên-bố-vấn-đề">2. Tuyên bố vấn đề</h2>
@@ -1090,30 +1095,30 @@
 <li>Thiếu hệ thống giám sát, cảnh báo tập trung, dẫn đến phản ứng chậm với sự cố và mối đe dọa bảo mật</li>
 </ul>
 <h3 id="giải-pháp">Giải pháp</h3>
-<p>Dự án cung cấp một kiến trúc serverless hoàn chỉnh với CI/CD tự động, bảo mật tích hợp và giám sát toàn diện. Quy trình triển khai tự động từ GitLab qua CodePipeline, CodeBuild, Semgrep (SAST), Trivy (container scan), Terraform (IaC) và CodeDeploy, đảm bảo mỗi thay đổi đều được kiểm tra và quét bảo mật. Lớp phân phối sử dụng Route 53, CloudFront và WAF để tăng tốc và bảo vệ ứng dụng. Backend serverless với Cognito (xác thực), API Gateway, Lambda, DynamoDB, Secrets Manager và KMS đảm bảo bảo mật dữ liệu. Hệ thống giám sát đa lớp (CloudWatch, CloudTrail, GuardDuty, EventBridge, SNS) phát hiện và cảnh báo sự cố tức thời.</p>
+<p>Dự án cung cấp một kiến trúc serverless hoàn chỉnh với CI/CD tự động, bảo mật tích hợp và giám sát toàn diện. Quy trình triển khai tự động từ GitLab CI/CD qua ba stages: lint (Semgrep SAST), build (Docker build + Trivy container scanning), và deploy (Terraform infrastructure provisioning), đảm bảo mỗi thay đổi đều được kiểm tra và quét bảo mật. Lớp phân phối sử dụng Route 53, CloudFront và WAF để tăng tốc và bảo vệ ứng dụng. Backend serverless với Cognito (xác thực), API Gateway, Lambda, DynamoDB, Secrets Manager và KMS đảm bảo bảo mật dữ liệu. Hệ thống giám sát đa lớp (CloudWatch, CloudTrail, GuardDuty, EventBridge, SNS) phát hiện và cảnh báo sự cố tức thời.</p>
 <h3 id="lợi-ích-và-hoàn-vốn-đầu-tư-roi">Lợi ích và hoàn vốn đầu tư (ROI)</h3>
 <p>Giải pháp mang lại lợi ích kỹ thuật và tài chính đáng kể: tự động hóa hoàn toàn giảm 80-90% thời gian triển khai và loại bỏ lỗi thủ công, bảo mật tích hợp giảm rủi ro lỗ hổng, CDN và serverless đảm bảo hiệu năng cao với khả năng mở rộng tự động, giám sát tập trung phát hiện sự cố nhanh hơn 70-80%. Về tài chính, chi phí vận hành ước tính ~$20-40/tháng cho quy mô nhỏ đến trung bình, thấp hơn đáng kể so với hạ tầng truyền thống, không cần đầu tư phần cứng ban đầu và giảm 60-70% chi phí nhân lực vận hành. Thời gian hoàn vốn dự kiến 1-2 tháng, đồng thời cung cấp nền tảng mở rộng cho các dự án tương lai.</p>
 <h2 id="3-kiến-trúc-hệ-thống">3. Kiến trúc hệ thống</h2>
 <p><img src="http://localhost:1313/fcj-aws/images/2-Proposal/platform_architecture.png" alt="System Architecture"></p>
 <p>Kiến trúc gồm ba phần chính:</p>
 <ol>
-<li><strong>Pipeline CI/CD</strong>: Chạy trên GitLab và AWS CodePipeline để build container, quét bảo mật (Semgrep, Trivy), triển khai hạ tầng bằng Terraform và đẩy image lên Amazon ECR</li>
+<li><strong>Domain CI/CD Pipeline</strong>: GitLab CI/CD pipeline với ba stages: lint (Semgrep SAST), build (Docker build + Trivy container scanning), và deploy (Terraform infrastructure provisioning). Pipeline tự động build container images, quét lỗ hổng, và deploy images lên Amazon ECR.</li>
 <li><strong>Lớp phân phối nội dung</strong>: Sử dụng Route 53, AWS WAF và CloudFront nhằm bảo vệ và tăng tốc truy cập người dùng</li>
 <li><strong>Lõi ứng dụng serverless</strong>: Đặt tại khu vực ap-southeast-1 với Cognito (xác thực), API Gateway, Lambda (xử lý nghiệp vụ), DynamoDB (lưu trữ), KMS và Secrets Manager (bảo mật), cùng bộ công cụ giám sát (CloudWatch, CloudTrail, GuardDuty, EventBridge, SNS)</li>
 </ol>
 <p><strong>AWS Services sử dụng</strong></p>
 <ul>
-<li>GitLab Actions, AWS CodePipeline, CodeBuild, CodeDeploy</li>
-<li>Semgrep, Trivy</li>
-<li>Terraform, Amazon ECR</li>
-<li>Amazon Cognito, API Gateway, AWS Lambda, DynamoDB</li>
-<li>AWS WAF, Amazon CloudFront, Amazon Route 53</li>
-<li>AWS Secrets Manager, AWS Key Management Service (KMS)</li>
-<li>Amazon CloudWatch, AWS CloudTrail, Amazon GuardDuty, Amazon EventBridge, Amazon SNS</li>
+<li><strong>CI/CD:</strong> GitLab CI/CD</li>
+<li><strong>Security Scanning:</strong> Semgrep, Trivy</li>
+<li><strong>Infrastructure:</strong> Terraform, Amazon ECR</li>
+<li><strong>Compute &amp; App Integration:</strong> Amazon API Gateway, AWS Lambda, Amazon DynamoDB</li>
+<li><strong>Networking &amp; Content Delivery:</strong> Amazon Route 53, Amazon CloudFront, AWS WAF</li>
+<li><strong>Security &amp; Compliance:</strong> AWS Secrets Manager, AWS Key Management Service (KMS)</li>
+<li><strong>Management &amp; Governance:</strong> Amazon CloudWatch, AWS CloudTrail, Amazon GuardDuty, Amazon EventBridge, Amazon SNS</li>
 </ul>
 <p><strong>Thiết kế thành phần</strong></p>
 <ul>
-<li><em>CI/CD</em>: Khi code đẩy lên GitLab, pipeline kích hoạt Semgrep (SAST), CodeBuild build container, Trivy quét, Terraform Plan/Apply, CodeDeploy cập nhật hạ tầng.</li>
+<li><em>CI/CD</em>: Khi code được push lên GitLab, GitLab CI/CD pipeline tự động chạy với ba stages: lint (Semgrep SAST để phân tích code tĩnh), build (Docker build container và Trivy scan lỗ hổng), và deploy (Terraform Plan/Apply để triển khai infrastructure và push images lên ECR).</li>
 <li><em>Phân phối &amp; bảo vệ</em>: Route 53 quản lý DNS → CloudFront cache nội dung → WAF lọc lưu lượng độc hại trước khi tới API.</li>
 <li><em>Dịch vụ ứng dụng</em>: Cognito cấp token cho người dùng; API Gateway xác thực và chuyển request đến Lambda; Lambda xử lý nghiệp vụ, đọc/ghi DynamoDB.</li>
 <li><em>Bí mật &amp; mã hóa</em>: Secrets Manager lưu thông tin nhạy cảm, KMS mã hóa khóa và dữ liệu.</li>
@@ -1122,11 +1127,11 @@
 <h2 id="4-triển-khai-kỹ-thuật">4. Triển khai kỹ thuật</h2>
 <ol>
 <li>Thiết kế IaC với Terraform cho VPC logic, IAM role ít quyền nhất, API Gateway, Lambda, DynamoDB, bảo mật cổng.</li>
-<li>Thiết lập GitLab CI/CD pipeline, tích hợp AWS CodePipeline/CodeBuild/CodeDeploy qua role liên tài khoản.</li>
+<li>Thiết lập GitLab CI/CD pipeline: Cấu hình GitLab CI/CD variables (AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY) và thiết lập IAM roles với least-privilege permissions cho ECR, Lambda, API Gateway, DynamoDB, Secrets Manager, và CloudWatch.</li>
 <li>Cấu hình Semgrep và Trivy chạy tự động; pipeline fail nếu phát hiện vấn đề nghiêm trọng.</li>
 <li>Định nghĩa Terraform module để quản lý Lambda (mã nguồn lưu trong ECR), API Gateway, CloudFront, WAF, Cognito.</li>
 <li>Bật CloudWatch log group, metric filter, GuardDuty, CloudTrail; cấu hình EventBridge rule gửi SNS khi có sự kiện bất thường.</li>
-<li>Thiết kế quy trình rollback tự động dựa trên CodeDeploy và versioning của Terraform state.</li>
+<li>Thiết kế cơ chế rollback: Sử dụng Terraform state versioning (remote backend) để rollback infrastructure, ECR image tagging để versioning container, và GitLab pipeline với tùy chọn rollback thủ công để revert về commit trước và redeploy.</li>
 </ol>
 <h2 id="5-lộ-trình--mốc-triển-khai">5. Lộ trình &amp; Mốc triển khai</h2>
 <table>
@@ -1146,7 +1151,7 @@
       <tr>
           <td>Thiết lập IaC &amp; CI/CD</td>
           <td>Tuần 2</td>
-          <td>Viết Terraform, tạo GitLab pipeline, kết nối CodePipeline</td>
+          <td>Viết Terraform, thiết lập GitLab CI/CD pipeline, cấu hình AWS IAM roles và GitLab variables</td>
       </tr>
       <tr>
           <td>Tích hợp bảo mật</td>
@@ -1196,9 +1201,9 @@
           <td>~$5.00 - $10.00</td>
       </tr>
       <tr>
-          <td>CI/CD (CodePipeline/CodeBuild)</td>
-          <td>5 lần triển khai (250 phút build)</td>
-          <td>~$2.25 - $4.00</td>
+          <td>GitLab CI/CD</td>
+          <td>5 lần triển khai (~30 phút tổng cộng)</td>
+          <td>~$0.00 - $1.00</td>
       </tr>
       <tr>
           <td>Amazon ECR</td>
@@ -1217,13 +1222,13 @@
       </tr>
       <tr>
           <td>Security &amp; Monitoring</td>
-          <td>GuardDuty, KMS, Secrets Manager, Logs tối thiểu</td>
+          <td>GuardDuty, KMS, Secrets Manager, logs tối thiểu</td>
           <td>~$2.00 - $5.00</td>
       </tr>
       <tr>
           <td><strong>Tổng Chi Phí</strong></td>
           <td></td>
-          <td><strong>~$20.79 - $39.54 USD/tháng</strong></td>
+          <td><strong>~$18.54 - $36.54 USD/tháng</strong></td>
       </tr>
   </tbody>
 </table>
@@ -1274,7 +1279,7 @@
 </ul>
 <h3 id="kế-hoạch-dự-phòng">Kế hoạch dự phòng</h3>
 <ul>
-<li><strong>Sự cố bảo mật</strong>: Nếu phát hiện lỗ hổng nghiêm trọng, ngay lập tức rollback về version trước đó qua CodeDeploy, cách ly tài nguyên bị ảnh hưởng, thông báo cho đội bảo mật và tiến hành patch</li>
+<li><strong>Sự cố bảo mật</strong>: Nếu phát hiện lỗ hổng nghiêm trọng, ngay lập tức rollback qua GitLab pipeline (revert commit và redeploy) hoặc Terraform state rollback, cách ly tài nguyên bị ảnh hưởng, thông báo cho đội bảo mật và tiến hành patch</li>
 <li><strong>Downtime do cấu hình sai</strong>: Sử dụng Terraform state backup để khôi phục cấu hình trước đó, chuyển traffic sang môi trường staging tạm thời nếu cần, có sẵn runbook để rollback nhanh</li>
 <li><strong>Vượt quá ngân sách</strong>: Tự động tắt các dịch vụ không cần thiết khi đạt ngưỡng cảnh báo, tối ưu CloudFront cache hit ratio, xem xét chuyển sang Reserved Capacity cho DynamoDB nếu sử dụng lâu dài</li>
 <li><strong>Lỗi xác thực</strong>: Chuyển sang backup Cognito user pool ở region khác, sử dụng API Gateway caching để giảm tải, có sẵn fallback authentication mechanism</li>
@@ -2035,19 +2040,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="http://localhost:1313/fcj-aws/js/clipboard.min.js?1765036373"></script>
-    <script src="http://localhost:1313/fcj-aws/js/perfect-scrollbar.min.js?1765036373"></script>
-    <script src="http://localhost:1313/fcj-aws/js/perfect-scrollbar.jquery.min.js?1765036373"></script>
-    <script src="http://localhost:1313/fcj-aws/js/jquery.sticky.js?1765036373"></script>
-    <script src="http://localhost:1313/fcj-aws/js/featherlight.min.js?1765036373"></script>
-    <script src="http://localhost:1313/fcj-aws/js/highlight.pack.js?1765036373"></script>
+    <script src="http://localhost:1313/fcj-aws/js/clipboard.min.js?1765111900"></script>
+    <script src="http://localhost:1313/fcj-aws/js/perfect-scrollbar.min.js?1765111900"></script>
+    <script src="http://localhost:1313/fcj-aws/js/perfect-scrollbar.jquery.min.js?1765111900"></script>
+    <script src="http://localhost:1313/fcj-aws/js/jquery.sticky.js?1765111900"></script>
+    <script src="http://localhost:1313/fcj-aws/js/featherlight.min.js?1765111900"></script>
+    <script src="http://localhost:1313/fcj-aws/js/highlight.pack.js?1765111900"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="http://localhost:1313/fcj-aws/js/modernizr.custom-3.6.0.js?1765036373"></script>
-    <script src="http://localhost:1313/fcj-aws/js/learn.js?1765036373"></script>
-    <script src="http://localhost:1313/fcj-aws/js/hugo-learn.js?1765036373"></script>
+    <script src="http://localhost:1313/fcj-aws/js/modernizr.custom-3.6.0.js?1765111900"></script>
+    <script src="http://localhost:1313/fcj-aws/js/learn.js?1765111900"></script>
+    <script src="http://localhost:1313/fcj-aws/js/hugo-learn.js?1765111900"></script>
 
-    <link href="http://localhost:1313/fcj-aws/mermaid/mermaid.css?1765036373" rel="stylesheet" />
-    <script src="http://localhost:1313/fcj-aws/mermaid/mermaid.js?1765036373"></script>
+    <link href="http://localhost:1313/fcj-aws/mermaid/mermaid.css?1765111900" rel="stylesheet" />
+    <script src="http://localhost:1313/fcj-aws/mermaid/mermaid.js?1765111900"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

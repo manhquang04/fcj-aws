@@ -15,21 +15,21 @@
     <title>Dọn dẹp tài nguyên :: Báo cáo thực tập</title>
 
     
-    <link href="http://localhost:1313/fcj-aws/css/nucleus.css?1765036935" rel="stylesheet">
-    <link href="http://localhost:1313/fcj-aws/css/fontawesome-all.min.css?1765036935" rel="stylesheet">
-    <link href="http://localhost:1313/fcj-aws/css/hybrid.css?1765036935" rel="stylesheet">
-    <link href="http://localhost:1313/fcj-aws/css/featherlight.min.css?1765036935" rel="stylesheet">
-    <link href="http://localhost:1313/fcj-aws/css/perfect-scrollbar.min.css?1765036935" rel="stylesheet">
-    <link href="http://localhost:1313/fcj-aws/css/auto-complete.css?1765036935" rel="stylesheet">
-    <link href="http://localhost:1313/fcj-aws/css/atom-one-dark-reasonable.css?1765036935" rel="stylesheet">
-    <link href="http://localhost:1313/fcj-aws/css/theme.css?1765036935" rel="stylesheet">
-    <link href="http://localhost:1313/fcj-aws/css/hugo-theme.css?1765036935" rel="stylesheet">
+    <link href="http://localhost:1313/fcj-aws/css/nucleus.css?1765111729" rel="stylesheet">
+    <link href="http://localhost:1313/fcj-aws/css/fontawesome-all.min.css?1765111729" rel="stylesheet">
+    <link href="http://localhost:1313/fcj-aws/css/hybrid.css?1765111729" rel="stylesheet">
+    <link href="http://localhost:1313/fcj-aws/css/featherlight.min.css?1765111729" rel="stylesheet">
+    <link href="http://localhost:1313/fcj-aws/css/perfect-scrollbar.min.css?1765111729" rel="stylesheet">
+    <link href="http://localhost:1313/fcj-aws/css/auto-complete.css?1765111729" rel="stylesheet">
+    <link href="http://localhost:1313/fcj-aws/css/atom-one-dark-reasonable.css?1765111729" rel="stylesheet">
+    <link href="http://localhost:1313/fcj-aws/css/theme.css?1765111729" rel="stylesheet">
+    <link href="http://localhost:1313/fcj-aws/css/hugo-theme.css?1765111729" rel="stylesheet">
     
-    <link href="http://localhost:1313/fcj-aws/css/theme-workshop.css?1765036935" rel="stylesheet">
+    <link href="http://localhost:1313/fcj-aws/css/theme-workshop.css?1765111729" rel="stylesheet">
     
     
 
-    <script src="http://localhost:1313/fcj-aws/js/jquery-3.3.1.min.js?1765036935"></script>
+    <script src="http://localhost:1313/fcj-aws/js/jquery-3.3.1.min.js?1765111729"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -88,14 +88,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="http://localhost:1313/fcj-aws/js/lunr.min.js?1765036935"></script>
-<script type="text/javascript" src="http://localhost:1313/fcj-aws/js/auto-complete.js?1765036935"></script>
+<script type="text/javascript" src="http://localhost:1313/fcj-aws/js/lunr.min.js?1765111729"></script>
+<script type="text/javascript" src="http://localhost:1313/fcj-aws/js/auto-complete.js?1765111729"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/localhost:1313\/fcj-aws\/\/vi";
     
 </script>
-<script type="text/javascript" src="http://localhost:1313/fcj-aws/js/search.js?1765036935"></script>
+<script type="text/javascript" src="http://localhost:1313/fcj-aws/js/search.js?1765111729"></script>
  
   </div>
 
@@ -1044,7 +1044,7 @@
       <ul>
         <li><a href="#thứ-tự-dọn-dẹp">Thứ tự dọn dẹp</a></li>
         <li><a href="#bước-1-destroy-infrastructure-với-terraform">Bước 1: Destroy Infrastructure với Terraform</a></li>
-        <li><a href="#bước-2-destroy-cicd-pipeline">Bước 2: Destroy CI/CD Pipeline</a></li>
+        <li><a href="#bước-2-dọn-dẹp-gitlab-cicd-nếu-cần">Bước 2: Dọn dẹp GitLab CI/CD (nếu cần)</a></li>
         <li><a href="#bước-3-dọn-dẹp-thủ-công-nếu-cần">Bước 3: Dọn dẹp thủ công (nếu cần)</a></li>
         <li><a href="#bước-4-xác-minh-xóa">Bước 4: Xác minh xóa</a></li>
         <li><a href="#bước-5-dọn-dẹp-local-files-tùy-chọn">Bước 5: Dọn dẹp Local Files (Tùy chọn)</a></li>
@@ -1082,7 +1082,6 @@
 <h3 id="thứ-tự-dọn-dẹp">Thứ tự dọn dẹp</h3>
 <p>Quan trọng là xóa tài nguyên theo đúng thứ tự do dependencies:</p>
 <ol>
-<li><strong>CodePipeline và CodeBuild</strong> (nếu tạo riêng)</li>
 <li><strong>API Gateway</strong></li>
 <li><strong>Lambda Function</strong></li>
 <li><strong>DynamoDB Tables</strong></li>
@@ -1108,16 +1107,11 @@
 </ul>
 <p><strong>Lưu ý:</strong> Bạn có thể cần xác nhận thủ công việc xóa một số tài nguyên.</p>
 <p><img src="http://localhost:1313/fcj-aws/images/5-Workshop/5.6-Clean-Up-Resources/terraform-destroy.png" alt="Terraform Destroy"></p>
-<h3 id="bước-2-destroy-cicd-pipeline">Bước 2: Destroy CI/CD Pipeline</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd pipeline
-</span></span><span style="display:flex;"><span>terraform destroy
-</span></span></code></pre></div><p>Điều này sẽ destroy:</p>
+<h3 id="bước-2-dọn-dẹp-gitlab-cicd-nếu-cần">Bước 2: Dọn dẹp GitLab CI/CD (nếu cần)</h3>
+<p>GitLab CI/CD pipeline không cần cleanup vì nó chạy trên GitLab infrastructure. Chỉ cần:</p>
 <ul>
-<li>CodePipeline</li>
-<li>CodeBuild projects</li>
-<li>ECR repository</li>
-<li>S3 bucket cho artifacts</li>
-<li>IAM roles cho pipeline</li>
+<li>Xóa GitLab CI/CD variables (nếu muốn)</li>
+<li>Xóa GitLab project (nếu không cần nữa)</li>
 </ul>
 <h3 id="bước-3-dọn-dẹp-thủ-công-nếu-cần">Bước 3: Dọn dẹp thủ công (nếu cần)</h3>
 <h4 id="xóa-ecr-images">Xóa ECR Images</h4>
@@ -1975,19 +1969,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="http://localhost:1313/fcj-aws/js/clipboard.min.js?1765036935"></script>
-    <script src="http://localhost:1313/fcj-aws/js/perfect-scrollbar.min.js?1765036935"></script>
-    <script src="http://localhost:1313/fcj-aws/js/perfect-scrollbar.jquery.min.js?1765036935"></script>
-    <script src="http://localhost:1313/fcj-aws/js/jquery.sticky.js?1765036935"></script>
-    <script src="http://localhost:1313/fcj-aws/js/featherlight.min.js?1765036935"></script>
-    <script src="http://localhost:1313/fcj-aws/js/highlight.pack.js?1765036935"></script>
+    <script src="http://localhost:1313/fcj-aws/js/clipboard.min.js?1765111729"></script>
+    <script src="http://localhost:1313/fcj-aws/js/perfect-scrollbar.min.js?1765111729"></script>
+    <script src="http://localhost:1313/fcj-aws/js/perfect-scrollbar.jquery.min.js?1765111729"></script>
+    <script src="http://localhost:1313/fcj-aws/js/jquery.sticky.js?1765111729"></script>
+    <script src="http://localhost:1313/fcj-aws/js/featherlight.min.js?1765111729"></script>
+    <script src="http://localhost:1313/fcj-aws/js/highlight.pack.js?1765111729"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="http://localhost:1313/fcj-aws/js/modernizr.custom-3.6.0.js?1765036935"></script>
-    <script src="http://localhost:1313/fcj-aws/js/learn.js?1765036935"></script>
-    <script src="http://localhost:1313/fcj-aws/js/hugo-learn.js?1765036935"></script>
+    <script src="http://localhost:1313/fcj-aws/js/modernizr.custom-3.6.0.js?1765111729"></script>
+    <script src="http://localhost:1313/fcj-aws/js/learn.js?1765111729"></script>
+    <script src="http://localhost:1313/fcj-aws/js/hugo-learn.js?1765111729"></script>
 
-    <link href="http://localhost:1313/fcj-aws/mermaid/mermaid.css?1765036935" rel="stylesheet" />
-    <script src="http://localhost:1313/fcj-aws/mermaid/mermaid.js?1765036935"></script>
+    <link href="http://localhost:1313/fcj-aws/mermaid/mermaid.css?1765111729" rel="stylesheet" />
+    <script src="http://localhost:1313/fcj-aws/mermaid/mermaid.js?1765111729"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

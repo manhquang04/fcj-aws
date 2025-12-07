@@ -19,7 +19,7 @@ Làm theo hướng dẫn này để triển khai một ứng dụng serverless p
 Bạn sẽ học cách:
 - Xây dựng ứng dụng **FastAPI** với kiến trúc phân lớp sạch (API → Service → Repository)
 - Đóng gói FastAPI thành **Lambda container image** sử dụng Mangum adapter
-- Thiết lập **AWS CodePipeline** với **CodeBuild** cho CI/CD tự động
+- Thiết lập **GitLab CI/CD** pipeline cho CI/CD tự động
 - Tích hợp quét bảo mật với **Semgrep** (SAST) và **Trivy** (container vulnerability scanning)
 - Triển khai infrastructure sử dụng **Terraform** modules
 - Lưu trữ dữ liệu trong các bảng **DynamoDB** (products, orders, users)
@@ -32,7 +32,7 @@ Bạn sẽ học cách:
 
 Kiến trúc được chia thành ba domain chính:
 
-1. **Domain CI/CD Pipeline**: GitLab → CodePipeline → CodeBuild (Semgrep → Docker Build → Trivy) → ECR → Terraform Deploy
+1. **Domain CI/CD Pipeline**: GitLab CI/CD (Semgrep → Docker Build → Trivy) → ECR → Terraform Deploy
 2. **Domain Application**: API Gateway HTTP API → Lambda (Container) → FastAPI → DynamoDB + Secrets Manager
 3. **Domain Monitoring**: CloudWatch Logs → CloudWatch Alarms → SNS Alerts
 
@@ -108,7 +108,7 @@ Backend-FastAPI-Docker_Build-Pipeline/
 └── pipeline/                   # CI/CD Pipeline
     ├── buildspec-build.yml    # Build stage (Semgrep, Docker, Trivy)
     ├── buildspec-deploy.yml   # Deploy stage (Terraform)
-    ├── codepipeline.tf        # CodePipeline configuration
+    └── .gitlab-ci.yml         # GitLab CI/CD configuration
     └── README.md
 ```
 
@@ -129,7 +129,7 @@ Backend-FastAPI-Docker_Build-Pipeline/
 | **API** | API Gateway HTTP API (v2) |
 | **Database** | Amazon DynamoDB (3 tables) |
 | **Bảo mật** | AWS Secrets Manager, IAM |
-| **CI/CD** | AWS CodePipeline, CodeBuild, Amazon ECR |
+| **CI/CD** | GitLab CI/CD, Amazon ECR |
 | **Monitoring** | Amazon CloudWatch (Logs, Metrics, Alarms), SNS |
 | **DNS** | Amazon Route 53 (tùy chọn) |
 | **IaC** | Terraform |
